@@ -1,0 +1,19 @@
+// @flow
+import * as React from "react";
+
+import type { Status } from ".";
+
+export type WizardContextValue = {|
+  +statuses: Status[],
+  +setStatuses: (Status[] | ((Status[]) => Status[])) => void,
+|};
+
+export type WizardStepContextValue = {|
+  +index: number,
+  +status: Status,
+  +nextStepStatus: Status,
+  +isActive: boolean,
+  +onChangeStep?: (stepIndex: number) => void | Promise<any>,
+|};
+
+declare export var WizardStepContext: React.Context<WizardStepContextValue>;
